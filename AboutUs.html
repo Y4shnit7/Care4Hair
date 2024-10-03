@@ -1,0 +1,569 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About us</title>
+    <link rel="icon" type="image/jpg" href="c4h.jpg">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        body{
+            background-color: rgb(247, 237, 224);
+        }
+        nav{
+            background-color: #430A5D;
+            color: white;
+            height: 10vh;
+        }
+        nav ul{
+            display: flex;
+            justify-content: flex-end;
+            list-style: none;
+        }
+        li{
+            margin: 10px;
+            font-size: 30px;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        .navbar{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: #430A5D;
+            justify-content: space-around;
+        }
+        .navbar .hari{
+            color: white;
+            font-size: 50px;
+            font-weight: 500;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin-left:5px;
+        }
+        .container{
+            height: 30rem;
+            width: 100%;
+            position: relative;
+        }
+        .cover img{
+            height: 30rem;
+            width: 100%;
+            z-index: -1;
+        }
+        .gradient{
+            height: 100%;
+            width: 100%;
+            background-color: #430A5D;
+            opacity: 0.3;
+            position: absolute;
+        }
+        .heading{
+            font-family: "Poppins", sans-serif;
+            font-weight: 500;
+            font-style: normal;
+            color: white;
+            position: absolute;
+            z-index: 2;
+            font-size: 5rem;
+            top: 35%;
+            right: 10%;
+        }
+        .container1{
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: 'Poppins',sans-serif;
+            font-size: 2rem;
+        }
+        .title{
+            display: grid;
+            grid-template-columns: repeat(3,1fr);
+            align-items: center;
+            column-gap: 1.2rem;
+        }
+        .title::before, .title::after{
+            content: "";
+            height: 2px;
+            background-color: #000;
+            display: block;
+        }
+        .row{
+            display: flex;
+            justify-content: space-between;
+            font-family: 'Poppins',sans-serif;
+            margin-top: 20px;
+        }
+        .about-us{
+            width: 80%;
+            margin: auto;
+            padding-top: 80px;
+            padding-bottom: 50px;
+
+        }
+        .about-col1{
+            flex-basis: 48%;
+            padding: 30px 2px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            gap: 20px;
+
+        }
+        .about-col2{
+            width: 48%;
+            padding: 30px 2px;
+            position: relative;
+        }
+        .about-col2 img{
+            width: 100%;
+            border-radius: 8px;
+            position: absolute;
+            transition: opacity 0.5s ease-in-out;
+        }
+        .about-col2 img.img-front:hover{
+            opacity: 0;
+            cursor: pointer;
+        }
+        .about-col1 h1{
+            padding-top:0;
+            font-size: 2rem;
+        }
+        .about-col1 p{
+            padding-top: 15px 0 25px; 
+            font-size: 1.3rem;           
+        }
+        /*---button----*/
+        .btn {
+            background-color: #EEE4B1;
+            border: 2px solid #422800;
+            border-radius: 30px;
+            box-shadow: #422800 4px 4px 0 0;
+            color: #422800;
+            cursor: pointer;
+            display: inline-block;
+            font-weight: 600;
+            font-size: 18px;
+            padding: 0 18px;
+            line-height: 50px;
+            text-align: center;
+            text-decoration: none;
+            user-select: none;
+            -webkit-user-select: none;
+            touch-action: manipulation;
+            align-self: center
+        }
+        .btn:hover {
+            background-color: #fff;
+        }
+        .btn:active {
+            box-shadow: #422800 2px 2px 0 0;
+            transform: translate(2px, 2px);
+        }
+        .team h1{
+            text-align: center;
+            font-family: 'Poppins',sans-serif;
+            font-weight: 800;
+            font-size: 3rem;
+            margin-top: 40px;
+        }
+        /*---team members--*/
+        .team-cards{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-wrap: wrap;
+            position: relative;
+            font-family: 'Poppins',sans-serif;
+        }
+        .team-cards::before{
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(#f00,#f0f);
+            clip-path: circle(30% at right 70%);
+        }
+        .team-cards::after{
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(#2196f3,#e91e63);
+            clip-path: circle(20% at 10% 10%);
+        }
+        .container2{
+            position: relative;
+            z-index: 1;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-wrap: wrap;
+            margin: 40px 0;
+        }
+        .container2 .card{
+            position: relative;
+            width: 300px;
+            height: 400px;
+            background: #430A5D;
+            margin: 20px;
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
+            border-radius: 15px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            backdrop-filter: blur(10px);
+        }
+        .container2 .card .content{
+            position: relative;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            opacity: 0.5;
+            transition: 0.5s;
+        }
+        .container2 .card:hover .content{
+            opacity: 1;
+            transform: translateY(-20px);
+        }
+        .container2 .card .content .imgBx{
+            position: relative;
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            overflow: hidden;
+            border: 10px solid rgba(0, 0, 0, 0.25);
+        }
+        .container2 .card .content .imgBx img{
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        .container2 .card .content .contentBx h3{
+            color: #fff;
+            letter-spacing: 2px;
+            font-weight: 500;
+            font-size: 18px;
+            text-align: center;
+            margin: 20px 0 10px;
+            line-height: 1.1em;
+        }
+        .container2 .card .content .contentBx h3 span{
+            font-size: 12px;
+            font-weight: 300;
+            text-transform: initial;
+        }
+        .container2 .card .sci{
+            position: absolute;
+            bottom: 50px;
+            display: flex;
+        }
+        .container2 .card .sci li{
+            list-style: none;
+            margin: 0 10px;
+            transform: translateY(40px);
+            transition: 0.5s;
+            opacity: 0;
+            transition-delay: calc(0.1s*var(--i));
+        }
+        .container2 .card:hover .sci li{
+            transform: translateY(0px);
+            opacity: 1;
+        }
+        .container2 .card .sci li a{
+            color: #fff;
+            font-size: 24px;            
+        }
+        /*--FAQs--*/
+        .faqs-section{
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            font-family: 'Poppins',sans-serif;
+        }
+        .faqs{
+            font-family: 'Poppins',sans-serif;
+            width: 80%;
+            margin: 0 auto;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        h2 .title{
+            font-size: 2rem;
+            margin: 2rem 0rem;           
+        }
+        .faq{
+            max-width: 700px;
+            margin-top: 2rem;
+            padding-bottom: 1rem;
+            border-bottom: 2px solid black;
+            cursor: pointer;
+        }
+        .question{
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .question h2{
+            padding-top: 1rem;
+            line-height: 1.6;
+            font-size: 1.4rem;
+        }
+        .answer{
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 1s ease;
+        }
+        .answer p{
+            padding-top: 1rem;
+            line-height: 1.6;
+            font-size: 1.4rem;
+        }
+        .faq.active .answer{
+            max-height: 300px;
+            animation: fade 1s ease-in-out;
+        }
+        .faq.active svg{
+            transform: rotate(180deg);
+        }
+        svg{
+            transition: transform 0.5s ease-in;
+        }
+        @keyframes fade{
+            from{
+                opacity:0;
+                transform: translateY(-10px);
+            }
+            to{
+                opacity: 1;
+                transform: translateY(0px);
+            }
+        }
+        /*--footer--*/
+        .footer{
+            margin-top: 40px;
+            width: 100%;
+            text-align: center;
+            padding: 30px 0 ;
+            font-family: 'Poppins',sans-serif;
+            background-color: #430A5D;
+            color: white;
+        }
+        .footer h3{
+            margin-bottom: 25px;
+            margin-top: 20px;
+            font-weight: 600;
+        }
+        .icons{
+            color: #f44336;
+            margin: 0 13px;
+            cursor: pointer;
+            padding: 18px 0;
+        }
+        .oth a {
+            text-decoration: none;
+            color: white;
+            transition: all 0.3s ease 0s;
+        }
+        .oth a:hover{
+            color: #EEE4B1;
+            cursor: pointer;
+        }
+
+
+
+    </style>
+</head>
+<body>
+    <div class="navbar">    
+        <div class="hari"><img src="c4h.jpg" alt="" width="40px" stroke-width="10px"> Care4Hair</div> 
+        <div class="oth">
+            <nav>
+                <ul>
+                    <li><a href="index.html">Home <img src="Style=outline.png" width="23px" alt=""></a></li>
+                    <li><a href="#">About Us <img src="Style=outline.png" width="23px" alt=""></a></li>
+                    <li><a href="ContactUs.html">Contacts <img src="Style=outline.png" width="23px" alt=""></a></li>
+                </ul>
+            </nav>
+        </div>
+    </div>
+<div class="container">
+    <div class="heading">ABOUT US</div>
+    <div class="gradient"></div>
+    <div class="cover"><img src="herbs.jpeg" alt="brush"></div>
+</div>
+<section class="about-us">
+    <div class="row">
+        <div class="about-col1">
+            <h1>We Provide Personalized Hair Care Solutions</h1>
+            <p>Care4Hair is your one-stop online solution for all your hair care problems. We understand your unique hair needs and provide personalized solutions through our expert advice, curated product recommendations, and DIY hair care tips. Let us help you achieve your dream hair, naturally.</p>
+            <a href="index2.html" class="btn">TAKE HAIR TEST</a>
+        </div>
+        <div class="about-col2">
+            <img src="CARE.jpg" alt="">
+            <img src="products.jpg" alt="" class="img-front">
+        </div>
+    </div>
+</section>
+<section>
+    <div class="container1">
+        <h1 class="title">OUR TEAM</h1>
+    </div>
+    <section class="team-cards">
+    <div class="container2">
+        <div class="card">
+            <div class="content">
+                <div class="imgBx"><img src="b1.png" alt="boy1"></div>
+                <div class="contentBx">
+                    <h3>
+                        SHUBHAM RAWAT<br><span>Designer</span>
+                    </h3>
+                </div>              
+            </div>
+            <ul class="sci">
+                <li style="--i:1">
+                    <a href="#"><i class="fa-brands fa-facebook"></i></a>
+                </li>
+                <li style="--i:2">
+                    <a href="#"><i class="fa-brands fa-square-x-twitter"></i></i></a>
+                </li>
+                <li style="--i:3">
+                    <a href="#"><i class="fa-brands fa-linkedin"></i></i></a>
+                </li>
+            </ul>
+        </div>
+        
+        <div class="card">
+            <div class="content">
+                <div class="imgBx"><img src="b2.png" alt="boy1"></div>
+                <div class="contentBx">
+                    <h3>
+                        YASHNIT PANT<br><span>Developer</span>
+                    </h3>
+                </div>              
+            </div>
+            <ul class="sci">
+                <li style="--i:1">
+                    <a href="#"><i class="fa-brands fa-facebook"></i></a>
+                </li>
+                <li style="--i:2">
+                    <a href="#"><i class="fa-brands fa-square-x-twitter"></i></i></a>
+                </li>
+                <li style="--i:3">
+                    <a href="#"><i class="fa-brands fa-linkedin"></i></i></a>
+                </li>
+            </ul>
+        </div>
+
+        <div class="card">
+            <div class="content">
+                <div class="imgBx"><img src="b3.png" alt="boy1"></div>
+                <div class="contentBx">
+                    <h3>
+                        BHAWESH PANT<br><span>Developer</span>
+                    </h3>
+                </div>              
+            </div>
+            <ul class="sci">
+                <li style="--i:1">
+                    <a href="#"><i class="fa-brands fa-facebook"></i></a>
+                </li>
+                <li style="--i:2">
+                    <a href="#"><i class="fa-brands fa-square-x-twitter"></i></i></a>
+                </li>
+                <li style="--i:3">
+                    <a href="#"><i class="fa-brands fa-linkedin"></i></i></a>
+                </li>
+            </ul>
+        </div>
+    </div>
+    </section>
+</section>
+<section class="faqs-section">
+    <div class="container1">
+        <h1 class="title">FAQs</h1>
+    </div>
+    <div class="faq">
+        <div class="question">
+            <h2>What is Care4Hair?</h2>
+            <svg width="15" height="10"viewBox="0 0 42 25">
+                <path d="M3 3L21 21L39 3" stroke="white" stroke-width="7" stroke-linecap="round"/>
+            </svg>
+        </div>
+        <div class="answer">
+            <p>
+                Care4Hair offers an online hair loss diagnosis service through a free hair test co-developed with medical professionals and advanced AI technology.Our online platform enables us to identify the root cause of your hair loss and create a personalised treatment plan tailored to your specific hair fall concerns. The online nature of our service provides convenience and accessibility for our users.</p>
+        </div>
+    </div>
+
+    <div class="faq">
+        <div class="question">
+            <h2>How long does is take to see results by using our recommended products?</h2>
+            <svg width="15" height="10"viewBox="0 0 42 25">
+                <path d="M3 3L21 21L39 3" stroke="white" stroke-width="7" stroke-linecap="round"/>
+            </svg>
+        </div>
+        <div class="answer">
+            <p>The time frame for witnessing results can vary but typically falls within 5-6 months for Stages 1 and 2 of the hair loss cycle. Several factors, including the type of hair loss, hair loss stage, age, root causes, and more, influence the duration of the treatment process. Care4Hair's comprehensive approach to addressing hair fall involves gradual improvement in various aspects of your health, paving the way for regrowth.</p>
+        </div>
+    </div>
+
+    <div class="faq">
+        <div class="question">
+            <h2>Are there any side effects with Care4Hair's product?</h2>
+            <svg width="15" height="10"viewBox="0 0 42 25">
+                <path d="M3 3L21 21L39 3" stroke="white" stroke-width="7" stroke-linecap="round"/>
+            </svg>
+        </div>
+        <div class="answer">
+            <p>Care4Hair's products are carefully formulated to be safe, with no reported side effects. However, individual responses may vary, and if you have specific concerns, our team of hair coaches is available to provide guidance and address any issues. Safety and effectiveness are paramount in our product development.</p>
+        </div>
+    </div>
+
+    <div class="faq">
+        <div class="question">
+            <h2>Do you offer guarantee with the results?</h2>
+            <svg width="15" height="10"viewBox="0 0 42 25">
+                <path d="M3 3L21 21L39 3" stroke="white" stroke-width="7" stroke-linecap="round"/>
+            </svg>
+        </div>
+        <div class="answer">
+            <p>Yes, we are confident about the efficacy of the treatment and thus provide a 100% Money-back guarantee if the treatment kit does not yield results within five months of consistent use. Please refer to our refund policy for complete details about our guarantee policy.</p>
+        </div>
+    </div>
+    <script>
+        const faqs = document.querySelectorAll(".faq");
+        faqs.forEach((faq)=>{
+            faq.addEventListener("click",()=>{
+                faq.classList.toggle("active");
+            })
+        })
+    </script>
+</section>
+<section class="footer">
+    <h3>ABOUT US</h3>
+    <p>Care4Hair: Your trusted destination for premium online hair care solutions. We offer expert advice, quality products, and personalized<br> recommendations to nurture your locks, ensuring confidence and vitality every day.</p>
+    <div class="icons">
+        <i class="fa-brands fa-facebook"></i>
+        <i class="fa-brands fa-square-x-twitter"></i>
+        <i class="fa-brands fa-instagram"></i>
+        <i class="fa-brands fa-linkedin"></i>
+    </div>
+</section>
+</body>
+</html>

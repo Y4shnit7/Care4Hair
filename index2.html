@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hair details form</title>
+    <link rel="icon" type="image/jpg" href="c4h.jpg">
+  <style>
+    body {
+
+color: aliceblue;
+background-color:#312238;
+
+}
+
+.main {
+
+height: 18vh;
+position: relative;
+background-position: center center;
+background-repeat: no-repeat;
+background-size: max(1200px, 100vw);
+opacity: 0.80;
+
+}
+
+
+.sepration {
+height: 7px;
+background-color: rgb(100, 91, 91);
+position: relative;
+opacity: 0.3;
+}
+
+* {
+margin: 0;
+padding: 0;
+}
+
+.heading {
+position: relative;
+left: 6vw;
+top: 10px;
+z-index: 10;
+font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+font-weight: 700;
+}
+
+.main h3 {
+position: relative;
+top: 30vh;
+}
+
+.svg {
+position: absolute;
+top: 0;
+}
+
+.svg img {
+height: 13vh;
+z-index: 10;
+
+}
+
+#userInfo {
+margin: auto;
+width: 40%;
+font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+font-size: medium;
+padding: 10px;
+border-radius: 4px;
+display: none;
+background-color: #fbeee0;
+color: solid black;
+}
+
+.image {
+display: flex;
+justify-content: center;
+}
+
+.image img {
+height: 35vh;
+width: 65vw;
+}
+
+.child {
+border: 2px solid black;
+padding: 5px;
+font-weight: 40px;
+color: aliceblue;
+background-color: black;
+}
+
+form {
+width: 450px;
+margin: 0 auto;
+background: #f9f9f9;
+padding: 20px;
+border-radius: 8px;
+box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+display: flex;
+flex-direction: column;
+background-color: rgb(238, 203, 157);
+margin-top: 50px;
+color: black;
+margin-bottom: 50px;
+font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+label {
+display: inline-block;
+width: 200px;
+margin-bottom: 8px;
+}
+
+select,
+textarea {
+width: 70%;
+padding: 8px;
+margin-bottom: 20px;
+border: 1px solid #ccc;
+border-radius: 4px;
+box-sizing: border-box;
+}
+
+input[type="submit"] {
+background-color: #4caf50;
+color: white;
+padding: 10px 20px;
+border: none;
+border-radius: 4px;
+cursor: pointer;
+font-size: 16px;
+align-self: flex-end;
+}
+
+input[type="submit"]:hover {
+background-color: #45a049;
+}
+
+#imageContainer {
+margin-top: 10px;
+max-width: 30vw;
+border-radius: 3px;
+
+}
+.heading h2 img{
+margin: 9px 9px -9px 0px
+}
+  </style>
+</head>
+<body>
+    <div class="main">
+    <div class="heading">
+        <h2><img src="CARE4HAIR.svg" alt="" width="38px" class="invert">WELCOME T0 CARE4HAIR</h2>
+        
+    </div>
+    </div>
+    
+    <form id="hairForm" action="#" method="post">
+        <h2>Hair Details Form</h2>
+        <label for="hairType">Type of Hair:</label>
+        <select id="hairType" name="hairType" required>
+            <option value="select">Select</option>
+            <option value="Straight">Straight</option>
+            <option value="Wavy">Wavy</option> 
+            <option value="Curly">Curly</option>
+           
+        </select>
+        <label for="hairLossStage">Hair Loss Stage:</label>
+        <select id="hairLossStage" name="hairLossStage" required>
+            <option value="">Select</option>
+            <option value="Type 1">Type 1</option>
+            <option value="Type 2">Type 2</option>
+            <option value="Type 3">Type 3</option>
+        </select>
+
+        <label for="dandruff">Do you have dandruff?</label>
+        <select id="dandruff" name="dandruff" required>
+            <option value="">Select</option>
+            <option value="Yes">Yes</option>
+            <option value="No">No</option>
+        </select>
+
+        <label for="oilyScalp">Do you have an oily scalp?</label>
+        <select id="oilyScalp" name="oilyScalp" required>
+            <option value="">Select</option>
+            <option value="Yes">Yes</option>
+            <option value="No">No</option>
+        </select>
+
+        <label for="otherDetails">Other Information:</label>
+        <textarea id="otherDetails" name="otherDetails" rows="4"
+            placeholder="Enter any additional information about your hair"></textarea>
+             <input type="submit" value="Submit">
+    </form>
+    <div id="userInfo">
+        <h2>User Information</h2>
+        <p id="outputText"></p>
+      <h2>Product Prescribed</h2>
+        <div id="imageContainer"></div>
+    </div>                                     
+    <div class="sepration">
+    </div>
+
+    <script>
+        document.getElementById('hairForm').addEventListener('submit', function (event) {
+    event.preventDefault(); // Prevent form submission
+    // Get form values
+    var hairType = document.getElementById('hairType').value;
+    var hairLossStage = document.getElementById('hairLossStage').value;
+    var dandruff = document.getElementById('dandruff').value;
+    var oilyScalp = document.getElementById('oilyScalp').value;
+    var otherDetails = document.getElementById('otherDetails').value;
+    var outputText = "";
+    var imagepath;
+
+    if (hairType === "Straight" && dandruff === "Yes" && oilyScalp === "Yes" && hairLossStage === "Type 1") {
+        outputText= "Neem has antifungal properties that can help combat dandruff"+"\n"+"Extract fresh neem juice and apply it to your scalp Leave it on for about 30 minutes before washing it off ";
+        outputText += " Eat extra protein to support hair growth";
+        imagepath="image6.png"    
+    } 
+     else if (dandruff === "No" && oilyScalp === "No" && hairLossStage === "Type 2") {
+        outputText = "Egg whites are rich in proteins and can strengthen hairApply egg white to your scalp and hair, leave it on for 30 minutes, and then wash it off with a mild shampoo2";
+        imagepath="remedies.jpeg" 
+    }
+     else if (dandruff === "Yes" && oilyScalp === "Yes" && hairLossStage === "Type 2") {
+        outputText = "Egg whites are rich in proteins and can strengthen hairApply egg white to your scalp and hair, leave it on for 30 minutes, and then wash it off with a mild shampoo2";
+        imagepath="image1.jpeg" 
+    }
+    
+     else if (hairType==="Curly" && dandruff === "Yes" && oilyScalp === "Yes" && hairLossStage === "Type 2")  {
+        outputText = " Fenugreek seeds are an easy solution for both dandruff and hair fall Soak fenugreek seeds overnight, grind them into a paste, and apply it to your scalp Rinse after 30 minutes1 ";
+       imagepath="image2.jpeg"    
+    }
+     else if (hairType==="Curly" && dandruff === "Yes" && oilyScalp === "Yes" && hairLossStage === "Type 1")  {
+        outputText = " Fenugreek seeds are an easy solution for both dandruff and hair fall Soak fenugreek seeds overnight, grind them into a paste, and apply it to your scalp Rinse after 30 minutes1 ";
+       imagepath="Fenugreek.png"    
+    }
+    else if ( hairType==="Straight" && dandruff === "Yes" && oilyScalp === "Yes" && hairLossStage === "Type 3") {
+        outputText = "Look for shampoos containing salicylic acid, which can help exfoliate the scalp and reduce dandruff Use these shampoos regularly to manage dandruff and prevent hair fall3";
+        imagepath="rosemary1-removebg-preview.png"
+    }
+    else if (dandruff === "No" && oilyScalp === "yes" && hairLossStage === "Type 1") {
+        outputText = "Wash your hair with a mild, oil-free shampoo and conditioner specially formulated for oily hair Wash your hair with cool water instead of hot water.Swap your styling products such as gel, creams,and pomades that can build up on your scalp and make it look oily. "
+        imagepath="image3.jpeg" 
+    }
+    else {
+        outputText = "Your hair type is " + hairType + ". ";
+        outputText += "You " + (dandruff === "Yes" ? "have" : "do not have") + " dandruff. ";
+        outputText += "You " + (oilyScalp === "Yes" ? "have" : "do not have") + " an oily scalp. ";
+        outputText += "Your hair loss stage is " + hairLossStage + ". ";
+     outputText += "Eat extra protein to support hair growth";
+        outputText += "Avoiding heat tools, chemical treatments, tight hairstyles, hot water baths, and brushing wet hair, as they can damage the hair and cause breakage";
+        outputText+="Applying natural hair masks, such as coconut-onion, garlic gel, onion juice, cinnamon, pumpkin seed oil, or rosemary oil, to stimulate hair growth and prevent hair loss";
+        imagepath="image5.jpeg";
+    }
+    var imgElement = document.createElement("img");
+    imgElement.src = imagepath;
+    imgElement.alt = "Hair Type";
+    imgElement.width = 250; 
+    imgElement.height = 400; 
+
+
+    var imageContainer = document.getElementById("imageContainer");
+    imageContainer.innerHTML = "";
+    imageContainer.appendChild(imgElement);
+
+    document.getElementById('outputText').textContent = outputText;
+    document.getElementById('userInfo').style.display = 'block';
+    document.getElementById('userInfo').style.color = 'black';
+})
+    </script>
+</body>
+</html>
